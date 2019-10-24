@@ -44,10 +44,11 @@
                 }
                 else
                 {
-                    echo "Oops! Something went wrong. Please try again later.";
+                    echo "error.";
                 }
                 mysqli_select_db($cn,'assignment');
-                if(isset($_POST['submit']))
+     
+              /*  if(isset($_POST['submit']))
                 {
                     $username = $_POST['txt_uname'];
                     $lastname = $_POST['lastname'];
@@ -56,7 +57,7 @@
                     $myFile = $_FILES['myFile'];
                     $addresss = $_POST['address'];
                     $country = $_POST['country'];
-                    //$city = $_POST['city'];
+                    $city = $_POST['city'];
                     print_r($username);
                     echo "<br>";
                     print_r($lastname);
@@ -99,9 +100,30 @@
                              echo "record inserted.";
                          }
                         
-                    }
+                    } */
+                 
+                    $displayquery = "​select * from registration_form" ;
+                    $query = mysqli_query($cn,$displayquery); 
+                    
+                    while ($rows =  mysqli_fetch_array($query)){
+                        ?>
+                        <tr>
+                             <td><?php echo $rows['id']; ?></td>
+                             <td><?php echo $rows['fname']; ?></td>
+                             <td><?php echo $rows['lname']; ?></td>
+                             <td><?php echo $rows['pic']; ?></td>
+                             <td><?php echo $rows['dob']; ?></td>
+                             <td><?php echo $rows['resume']; ?></td> 
+                             <td><?php echo $rows['address']; ?></td>
+                             <td><?php echo $rows['country']; ?></td>
+                             <td><?php echo $rows['city']; ?>;</td>
 
-                }
+                        </tr>
+
+                        <?php 
+                    }
+              //  }
+            
                 
             ?>    
         </table>

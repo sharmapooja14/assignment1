@@ -47,7 +47,7 @@
             <h1 class="text-white bg-dark text-center">Registration Page</h1>
        
     <div calss="col-lg-8 m-auto d-block">
-        <form method="post" action="uploadrecord.php" enctype="multipart/form-data">
+        <form method="post" action="" enctype="multipart/form-data">
             
                 <div class="form-group">
                     <label for="fristname"> First name: </label>
