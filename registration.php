@@ -47,7 +47,7 @@
             <h1 class="text-white bg-dark text-center">Registration Page</h1>
        
     <div calss="col-lg-8 m-auto d-block">
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="uploadrecord.php" enctype="multipart/form-data">
             
                 <div class="form-group">
                     <label for="fristname"> First name: </label>
@@ -56,8 +56,13 @@
 
             <div>
                 <label for="lastname">Last name:</label>
-                <input type="text" id="txt_uname" name="txt_pwd" placeholder="Last Name" class="form-control"/>
+                <input type="text" id="txt_uname" name="lastname" placeholder="Last Name" class="form-control"/>
                 
+            </div>
+
+            <div>
+                <label for="file">Profile Image:  </label>
+                <input type="file" name="image" class="form-control"><br><br>
             </div>
 
             <div>
@@ -66,14 +71,11 @@
             </div>
 
             <div>
-                <label for="file">Select a file:  </label>
+                <label for="file">Select a Document:  </label>
                 <input type="file" name="myFile" class="form-control"><br><br>
             </div>
 
-            <div>
-                <label for="file">Profile Image:  </label>
-                <input type="file" name="myFile" class="form-control"><br><br>
-            </div>
+            
 
             <div>
                 <label for="address">Address:  </label>
