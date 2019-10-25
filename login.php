@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +8,11 @@
 <body>
 
 <div class="container">
-    <form method="post" action="">
+    <form method="post" action="loginchk.php">
         <div id="div_login">
         <img src="login.jpg" alt="login" style="width:30px;height:30px;">
             <h1>Login</h1>
+       
             <div>
                 <input type="text" class="textbox" id="txt_uname" name="txt_uname" placeholder="Username" />
             </div>
@@ -19,11 +21,14 @@
             </div>
             <div>
                 <input type="submit" value="Submit" name="but_submit" id="but_submit" />
-                
+                                
             </div>
             
         </div>
     </form>
+    
+
+
 </div>
 </body>
 </html> 
