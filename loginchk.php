@@ -1,7 +1,7 @@
 <?php 
   
 session_start();
-$cn=mysqli_connect("localhost","root" );
+$cn= mysqli_connect("localhost","root" );
 if($cn){
     echo "connection Successfull.";
 }

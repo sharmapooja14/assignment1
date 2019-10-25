@@ -102,10 +102,15 @@
                         
                     } */
                  
-                    $displayquery = "​select * from registration_form" ;
+                    $displayquery = "SELECT * from `registration_form`" ;
                     $query = mysqli_query($cn,$displayquery); 
+                    if(!$query){
+                        printf("Error: %s\n", mysqli_error($cn));
+                        exit;
+                    }else{
+                        while ($rows =  mysqli_fetch_array($query)){
                     
-                    while ($rows =  mysqli_fetch_array($query)){
+                    
                         ?>
                         <tr>
                              <td><?php echo $rows['id']; ?></td>
@@ -116,11 +121,12 @@
                              <td><?php echo $rows['resume']; ?></td> 
                              <td><?php echo $rows['address']; ?></td>
                              <td><?php echo $rows['country']; ?></td>
-                             <td><?php echo $rows['city']; ?>;</td>
+                             <td><?php echo $rows['city']; ?></td>
 
                         </tr>
 
                         <?php 
+                        }
                     }
               //  }
             
