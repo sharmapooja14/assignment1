@@ -25,7 +25,7 @@
                 string="<select name='any_name'>"+string+"</select>";
                 document.getElementById("output").innerHTML=string;
             }
-        </script>
+</script>
         
 <title>Registration Page</title>
  <!-- Latest compiled and minified CSS -->
