@@ -20,9 +20,10 @@
                
                 for(i=0;i<country_arr.length;i++)
                 {
-                    string=string+"<option>"+country_arr[i]+"</option>";
+
+                    string=string+"<option value="+country_arr[i]+">"+country_arr[i]+"</option>";
                 }
-                string="<select name='any_name'>"+string+"</select>";
+                string="<label for='city'>Select  Your City</label><select name='any_name'  class='form-control'>"+string+"</select>";
                 document.getElementById("output").innerHTML=string;
             }
 </script>
@@ -47,7 +48,7 @@
             <h1 class="text-white bg-dark text-center">Registration Page</h1>
        
     <div calss="col-lg-8 m-auto d-block">
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="uploadrecord.php" enctype="multipart/form-data">
             
                 <div class="form-group">
                     <label for="fristname"> First name: </label>
@@ -85,7 +86,7 @@
             </div>
 
             <div>
-                <label for="Country">Select Your Country</label>
+                <label for="country">Select Your Country</label>
                 <select id="input" name="country" class="form-control" onchange="random_function()">
                     <option>Select Your Country</option>
                     <option>INDIA</option>

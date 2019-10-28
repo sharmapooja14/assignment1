@@ -16,7 +16,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
     </head>
     <body>
-
+    <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="logout.php">Logout</a>
+    </li>
+    </ul>
     <div class="container">
         <br><br><br>
    <h1 class="text-white bg-dark text-center">All Records</h1>
@@ -48,7 +52,7 @@
                 }
                 mysqli_select_db($cn,'assignment');
      
-              /*  if(isset($_POST['submit']))
+              if(isset($_POST['submit']))
                 {
                     $username = $_POST['txt_uname'];
                     $lastname = $_POST['lastname'];
@@ -57,7 +61,7 @@
                     $myFile = $_FILES['myFile'];
                     $addresss = $_POST['address'];
                     $country = $_POST['country'];
-                    $city = $_POST['city'];
+                    $country = $_POST['city'];
                     print_r($username);
                     echo "<br>";
                     print_r($lastname);
@@ -72,6 +76,10 @@
                     echo "<br>";
                     print_r($country);
                     echo "<br>"; 
+                    print_r($city);
+                    echo "<br>"; 
+                    
+
                    
                     $imagename = $image['name'];
                     $imageerror = $image['error'];
@@ -100,12 +108,17 @@
                              echo "record inserted.";
                          }
                         
-                    } */
+                    } 
                  
-                    $displayquery = "​select * from registration_form" ;
+                    $displayquery = "SELECT * from `registration_form`" ;
                     $query = mysqli_query($cn,$displayquery); 
+                    if(!$query){
+                        printf("Error: %s\n", mysqli_error($cn));
+                        exit;
+                    }else{
+                        while ($rows =  mysqli_fetch_array($query)){
                     
-                    while ($rows =  mysqli_fetch_array($query)){
+                    
                         ?>
                         <tr>
                              <td><?php echo $rows['id']; ?></td>
@@ -116,13 +129,14 @@
                              <td><?php echo $rows['resume']; ?></td> 
                              <td><?php echo $rows['address']; ?></td>
                              <td><?php echo $rows['country']; ?></td>
-                             <td><?php echo $rows['city']; ?>;</td>
+                             <td><?php echo $rows['city']; ?></td>
 
                         </tr>
 
                         <?php 
+                        }
                     }
-              //  }
+               }
             
                 
             ?>    

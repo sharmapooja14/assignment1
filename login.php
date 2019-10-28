@@ -3,14 +3,15 @@
 <html>
 <head>
 <title>Lgin Page</title>
-<link rel="stylesheet" type="text/css" href="login.css" >
+<head>
+<link rel="stylesheet" type="text/css" href="./assets/css/login.css" >
 </head>
 <body>
 
 <div class="container">
     <form method="post" action="loginchk.php">
         <div id="div_login">
-        <img src="login.jpg" alt="login" style="width:30px;height:30px;">
+        <img src="./assets/img/login.jpg" alt="login" style="width:30px;height:30px;">
             <h1>Login</h1>
        
             <div>
