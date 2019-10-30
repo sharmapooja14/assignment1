@@ -19,6 +19,7 @@
     <ul class="nav justify-content-end">
     <li class="nav-item">
       <a class="nav-link" href="logout.php">Logout</a>
+       <button class="btn btn-secondary"> <a class="nav-link" href="registration.php" > Insert </a> </button> 
     </li>
     </ul>
     <div class="container">
@@ -52,7 +53,11 @@
                 }
                 mysqli_select_db($cn,'assignment');
      
-              if(isset($_POST['submit']))
+
+             // if(isset($_POST['submit']))
+
+               if(isset($_POST['submit']))
+
                 {
                     $username = $_POST['txt_uname'];
                     $lastname = $_POST['lastname'];
@@ -61,8 +66,9 @@
                     $myFile = $_FILES['myFile'];
                     $addresss = $_POST['address'];
                     $country = $_POST['country'];
-                    $country = $_POST['city'];
-                    print_r($username);
+
+                   // $country = $_POST['city'];
+                   /* print_r($username);
                     echo "<br>";
                     print_r($lastname);
                     echo "<br>";
@@ -75,12 +81,14 @@
                     print_r($image);
                     echo "<br>";
                     print_r($country);
-                    echo "<br>"; 
-                    print_r($city);
-                    echo "<br>"; 
+                    echo "<br>"; */
+                  
                     
 
                    
+
+                   // $city = $_POST['any_name'];
+
                     $imagename = $image['name'];
                     $imageerror = $image['error'];
                     $imagetemp = $image['tmp_name'];
@@ -91,7 +99,7 @@
                     $iamgeextstroed = array('png','jpg','jpeg'); 
                     
                     $imageconvertintostring = implode('/',$iamgeextstroed);
-                    echo $imageconvertintostring;
+                    // echo $imageconvertintostring;
                    
                     if(in_array($imagechk,$iamgeextstroed)){
                         
@@ -99,19 +107,23 @@
                         $destinationimage ='uploadimage/' .$imagename;
                         move_uploaded_file($imagetemp,$destinationimage);
 
-                    $q = "​INSERT INTO `registration_form`( `fname`, `lname`, `pic`, `dob`, `resume`, `address`, `country`)
-                         VALUES ('$username','$lastname','$destinationimage','$dob','$myFile','$addresss','$country')";
-                         
+                    $q = "​INSERT INTO `registration_form`( `fname`, `lname`, `pic`, `dob`, `resume`, `address`, `country`,`city`)
+                         VALUES ('".$username."','".$lastname."','".$destinationimage."','".$dob."','".$destinationimage."','".$addresss."','".$country."')";
+                        
                          $query = mysqli_query($cn,$q); 
                          if($query)
                          {
-                             echo "record inserted.";
+                           echo "record inserted.";
                          }
                         
                     } 
+
                  
+                }
+
                     $displayquery = "SELECT * from `registration_form`" ;
                     $query = mysqli_query($cn,$displayquery); 
+                    
                     if(!$query){
                         printf("Error: %s\n", mysqli_error($cn));
                         exit;
@@ -124,19 +136,21 @@
                              <td><?php echo $rows['id']; ?></td>
                              <td><?php echo $rows['fname']; ?></td>
                              <td><?php echo $rows['lname']; ?></td>
-                             <td><?php echo $rows['pic']; ?></td>
+                             <td><img src="<?php echo $rows['pic']; ?>"/></td>
                              <td><?php echo $rows['dob']; ?></td>
                              <td><?php echo $rows['resume']; ?></td> 
                              <td><?php echo $rows['address']; ?></td>
                              <td><?php echo $rows['country']; ?></td>
                              <td><?php echo $rows['city']; ?></td>
-
+                             <td> <button class="btn-danger btn"> <a href="delete.php?id=<?php echo $rows['id']; ?>" class="text-white"> Delete </a>  </button> </td>
+                             <td> <button class="btn-primary btn"> <a href="update.php?id=<?php echo $rows['id'];?>" class="text-white"> Update </a> </button> </td>
+                            
                         </tr>
 
                         <?php 
                         }
                     }
-               }
+               
             
                 
             ?>    
