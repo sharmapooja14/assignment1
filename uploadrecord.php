@@ -1,3 +1,6 @@
+<?php
+include('config.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,18 +46,14 @@
             </thead>
             <?php
                 
-                $cn = mysqli_connect("localhost","root" );
-                if($cn){
+                if($con){
                     echo "connection Successfull.";
                 }
                 else
                 {
                     echo "error.";
                 }
-                mysqli_select_db($cn,'assignment');
-     
-
-             // if(isset($_POST['submit']))
+               // if(isset($_POST['submit']))
 
                if(isset($_POST['submit']))
 
@@ -63,32 +62,10 @@
                     $lastname = $_POST['lastname'];
                     $image = $_FILES['image'];
                     $dob = $_POST['dob'];
-                    $myFile = $_FILES['myFile'];
                     $addresss = $_POST['address'];
                     $country = $_POST['country'];
-
-                   // $country = $_POST['city'];
-                   /* print_r($username);
-                    echo "<br>";
-                    print_r($lastname);
-                    echo "<br>";
-                    print_r($dob);
-                    echo "<br>";
-                    print_r($addresss);
-                    echo "<br>";
-                    print_r($myFile);
-                    echo "<br>";
-                    print_r($image);
-                    echo "<br>";
-                    print_r($country);
-                    echo "<br>"; */
-                  
-                    
-
-                   
-
-                   // $city = $_POST['any_name'];
-
+                    $city = $_POST['any_name'];
+                    $myFile = $_FILES['myFile'];
                     $imagename = $image['name'];
                     $imageerror = $image['error'];
                     $imagetemp = $image['tmp_name'];
@@ -108,12 +85,14 @@
                         move_uploaded_file($imagetemp,$destinationimage);
 
                     $q = "​INSERT INTO `registration_form`( `fname`, `lname`, `pic`, `dob`, `resume`, `address`, `country`,`city`)
-                         VALUES ('".$username."','".$lastname."','".$destinationimage."','".$dob."','".$destinationimage."','".$addresss."','".$country."')";
-                        
-                         $query = mysqli_query($cn,$q); 
+                         VALUES ('".$username."','".$lastname."','".$imagename."','".$dob."','".$imagename."','".$addresss."','".$country."','".$city."')";
+                    
+                         $query = mysqli_query($con,$q); 
                          if($query)
                          {
                            echo "record inserted.";
+                         }else{
+                             echo "there was some error";
                          }
                         
                     } 
@@ -122,10 +101,10 @@
                 }
 
                     $displayquery = "SELECT * from `registration_form`" ;
-                    $query = mysqli_query($cn,$displayquery); 
+                    $query = mysqli_query($con,$displayquery); 
                     
                     if(!$query){
-                        printf("Error: %s\n", mysqli_error($cn));
+                        printf("Error: %s\n", mysqli_error($con));
                         exit;
                     }else{
                         while ($rows =  mysqli_fetch_array($query)){
@@ -136,7 +115,7 @@
                              <td><?php echo $rows['id']; ?></td>
                              <td><?php echo $rows['fname']; ?></td>
                              <td><?php echo $rows['lname']; ?></td>
-                             <td><img src="<?php echo $rows['pic']; ?>"/></td>
+                             <td><img src="<?php echo $rows['pic']; ?>" height="500" width="500"/></td>
                              <td><?php echo $rows['dob']; ?></td>
                              <td><?php echo $rows['resume']; ?></td> 
                              <td><?php echo $rows['address']; ?></td>
