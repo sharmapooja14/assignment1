@@ -96,18 +96,18 @@ if(!isset($_SESSION['txt_uname']))
                         $destinationimage ='uploadimage/' .$imagename;
                         move_uploaded_file($imagetemp,$destinationimage);
 
-                    $q = "​INSERT INTO `registration_form`( `fname`, `lname`, `gender`, `pic`, `dob`, `resume`, `address`, `country`,`city` , `hobbies`)
-                         VALUES ('".$username."','".$lastname."','".$optradio."','".$imagename."','".$dob."','".$imagename."','".$addresss."','".$country."','".$city."','".$hobbies."')";
-                       
+                    $q = "​INSERT INTO registration_form ( fname, lname, gender, pic, dob, resume, address, country,city , hobbies)
+                         VALUES ('$username','$lastname','$optradio','$imagename','$dob','$imagename','$addresss','$country','$city','$hobbies')";
+                     echo $q;
+                    //  exit('est');
                          $query = mysqli_query($con,$q); 
-                         print_r($query);
-                         exit;
+                        
                          if($query)
                          
                          {
-                           echo "record inserted.";
+                           echo "record inserted";
                          }else{
-                             echo "there was some error";
+                             echo mysqli_error($con);
                          }
                         
                     } 
