@@ -14,6 +14,8 @@ if(isset($_POST['but_submit']))
 {
     $username = $_POST['txt_uname'];
     $password = $_POST['txt_pwd'];
+   // $pass = md5($password);
+   
     $sql = "select * from login where uname ='$username' and pass = '$password'";
     $query=mysqli_query($con,$sql);
     $row = mysqli_num_rows($query);{

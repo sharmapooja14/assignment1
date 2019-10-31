@@ -81,6 +81,14 @@ if(!isset($_SESSION['txt_uname']))
                 
             </div>
 
+            <div class="form-check-inline">
+            
+               
+            <label class="form-check-label">Gender: </label><br>
+                 <input type="radio"  name="optradio" value="male">Male
+                 <input type="radio" name="optradio" value="female">Female
+             </div>
+
             <div>
                 <label for="file">Profile Image:  </label>
                 <input type="file" name="image" class="form-control"><br><br>
@@ -114,8 +122,17 @@ if(!isset($_SESSION['txt_uname']))
                  </select>
                 <div id="output">
             </div>
-<br>
-           <input type="submit" value="Submit" name="submit" class="btn btn-success" />
+            <div class="form-check">
+                <label class="form-check-label"> Hobbies </label><br>
+                    
+                    <input type="checkbox" class="form-check-input" value="Reading books " name="chk">Reading books <br>
+                    <input type="checkbox" class="form-check-input" value="Cooking" name="chk">Cooking<br>
+                    <input type="checkbox" class="form-check-input" value="Driving" name="chk" >Driving<br>
+              
+            </div>
+
+                <br>
+            <input type="submit" value="Submit" name="submit" class="btn btn-success" />
                                 
             
             

@@ -69,7 +69,7 @@
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
              <br><br><br>
             <h1 class="text-white bg-dark text-center">update Page</h1>
        
@@ -78,7 +78,7 @@
             
                 <div class="form-group">
                     <label for="fristname"> First name: </label>
-                    <input type="text" class="form-control" id="txt_uname" name="txt_uname" placeholder="Frist Name" />
+                    <input type="text" class="form-control" id="txt_uname" name="txt_uname" placeholder="Frist Name"  />
                 </div>
 
             <div>
@@ -86,6 +86,12 @@
                 <input type="text" id="txt_uname" name="lastname" placeholder="Last Name" class="form-control"/>
                 
             </div>
+
+            <div class="form-check-inline">
+                 <label class="form-check-label">Gender: </label><br>
+                 <input type="radio"  name="optradio" value="male">Male
+                 <input type="radio" name="optradio" value="female">Female
+             </div>
 
             <div>
                 <label for="file">Profile Image:  </label>
@@ -120,6 +126,15 @@
                  </select>
                 <div id="output">
             </div>
+
+            <div class="form-check">
+                <label class="form-check-label"> Hobbies </label><br>
+                    
+                    <input type="checkbox" class="form-check-input" value="Reading books " name="chk">Reading books <br>
+                    <input type="checkbox" class="form-check-input" value="Cooking" name="chk">Cooking<br>
+                    <input type="checkbox" class="form-check-input" value="Driving" name="chk" >Driving<br>
+              
+            </div>
 <br>
            <input type="submit" value="Submit" name="submit" class="btn btn-success" />
                                 
@@ -129,6 +144,6 @@
             
     </div>
     
-</div>
+</div> 
 </body>
 </html>

@@ -22,7 +22,7 @@
             </div>
             <div>
                 <input type="submit" value="Submit" name="but_submit" id="but_submit" />
-                                
+                <input type="submit" value="login" name="sub" id="" />             
             </div>
             
         </div>
