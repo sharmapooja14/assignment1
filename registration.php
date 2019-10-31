@@ -125,9 +125,9 @@ if(!isset($_SESSION['txt_uname']))
             <div class="form-check">
                 <label class="form-check-label"> Hobbies </label><br>
                     
-                    <input type="checkbox" class="form-check-input" value="Reading books " name="chk">Reading books <br>
-                    <input type="checkbox" class="form-check-input" value="Cooking" name="chk">Cooking<br>
-                    <input type="checkbox" class="form-check-input" value="Driving" name="chk" >Driving<br>
+                    <input type="checkbox" class="form-check-input" value="Reading books " name="chk[]">Reading books <br>
+                    <input type="checkbox" class="form-check-input" value="Cooking" name="chk[]">Cooking<br>
+                    <input type="checkbox" class="form-check-input" value="Driving" name="chk[]" >Driving<br>
               
             </div>
 

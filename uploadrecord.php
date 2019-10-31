@@ -62,21 +62,22 @@ include('config.php');
                 {
                     $username = $_POST['txt_uname'];
                     $lastname = $_POST['lastname'];
+
                     $optradio = $_POST['optradio'];
                     $image = $_FILES['image'];
                     $dob = $_POST['dob'];
                     $addresss = $_POST['address'];
                     $country = $_POST['country'];
                     $city = $_POST['any_name'];
-                    $hobbies = $_POST['chk'];
+                    $hobbies = implode(",",$_POST['chk']);
                     $myFile = $_FILES['myFile'];
                     $imagename = $image['name'];
                     $imageerror = $image['error'];
                     $imagetemp = $image['tmp_name'];
 
                     $imageext = explode('.',$imagename);
-                    $imagechk = strtolower(end($imageext));
-print_r($_POST);
+                  $imagechk = strtolower(end($imageext));
+
                     $iamgeextstroed = array('png','jpg','jpeg'); 
                     
                     $imageconvertintostring = implode('/',$iamgeextstroed);
@@ -90,7 +91,6 @@ print_r($_POST);
 
                     $q = "​INSERT INTO `registration_form`( `fname`, `lname`, `gender`, `pic`, `dob`, `resume`, `address`, `country`,`city` , `hobbies`)
                          VALUES ('".$username."','".$lastname."','".$optradio."','".$imagename."','".$dob."','".$imagename."','".$addresss."','".$country."','".$city."','".$hobbies."')";
-                    
                          $query = mysqli_query($con,$q); 
                          if($query)
                          {
