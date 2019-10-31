@@ -1,19 +1,12 @@
 <?php 
 include('config.php');
 session_start();
-// $cn= mysqli_connect("localhost","root" );
-// if($cn){
-//     echo "connection Successfull.";
-// }
-// else
-// {
-//     echo "Oops! Something went wrong. Please try again later.";
-// }
-// $db = mysqli_select_db($cn,'assignment');
+
 if(isset($_POST['but_submit']))
 {
     $username = $_POST['txt_uname'];
     $password = $_POST['txt_pwd'];
+    $_SESSION['last_time'] = time();
    // $pass = md5($password);
    
     $sql = "select * from login where uname ='$username' and pass = '$password'";

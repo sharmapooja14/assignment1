@@ -1,5 +1,12 @@
 <?php
 include('config.php');
+
+
+if(!isset($_SESSION['txt_uname']))
+{
+    header('location: login.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,7 +67,7 @@ include('config.php');
                if(isset($_POST['submit']))
 
                 {
-                    $username = $_POST['txt_uname'];
+                     $username = $_POST['txt_uname'];
                     $lastname = $_POST['lastname'];
 
                     $optradio = $_POST['optradio'];
@@ -91,8 +98,12 @@ include('config.php');
 
                     $q = "​INSERT INTO `registration_form`( `fname`, `lname`, `gender`, `pic`, `dob`, `resume`, `address`, `country`,`city` , `hobbies`)
                          VALUES ('".$username."','".$lastname."','".$optradio."','".$imagename."','".$dob."','".$imagename."','".$addresss."','".$country."','".$city."','".$hobbies."')";
+                       
                          $query = mysqli_query($con,$q); 
+                         print_r($query);
+                         exit;
                          if($query)
+                         
                          {
                            echo "record inserted.";
                          }else{

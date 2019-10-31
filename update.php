@@ -1,7 +1,12 @@
 <?php
 
  include 'config.php';
-
+ 
+ if(!isset($_SESSION['txt_uname']))
+ {
+     header('location: login.php');
+ }
+ 
  if(isset($_POST['submit'])){
 
  $id = $_GET['id'];

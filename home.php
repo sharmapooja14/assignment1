@@ -1,10 +1,22 @@
-<?php 
+ <?php 
 session_start();
-if(!isset($_SESSION['txt_uname']))
+if(isset($_SESSION['txt_uname']))
 {
-    header('location: login.php');
-}
-?>
+  if((time() - $_SESSION['last_time']) > 300) // Time in Seconds so 5 minutes is = 300 seconds
+  {
+  header("location:logout.php");
+  }
+  else
+  {
+  $_SESSION['last_time'] = time();
+  
+  }
+ }
+ else
+ {
+  header('Location:login.php');
+ }
+?> 
 
 <!DOCTYPE html>
 <html>
