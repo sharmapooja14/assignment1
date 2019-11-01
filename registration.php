@@ -59,10 +59,13 @@ if(!isset($_SESSION['txt_uname']))
     <a class="nav-link active" href="registration.php">Registration</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link active" href="uploadrecord.php">All Records</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="logout.php">Logout</a>
   </li>
   </ul>
-  <h1>welcome Dear <?php echo $_SESSION['txt_uname'] ?>!!! </h1>
+ 
 
              <br><br><br>
             <h1 class="text-white bg-dark text-center">Registration Page</h1>

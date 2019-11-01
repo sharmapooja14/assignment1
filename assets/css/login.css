@@ -10,7 +10,7 @@
     border: 1px solid gray;
     border-radius: 3px;
     width: 470px;
-    height: 270px;
+    height: 300px;
     box-shadow: 0px 2px 2px 0px  gray;
     margin: 0 auto;
 }
@@ -48,3 +48,22 @@ img {
     border: 0px;
     color: white;
 }
+
+.button{
+        background-color: lightseagreen;
+        border: none;
+        color: white;
+        width: 100px;
+        padding: 7px;;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+}
+a:link, a:visited {
+    
+    color: white;
+    
+    text-align: center;
+    
+    display: inline-block;
+  }

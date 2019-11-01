@@ -26,13 +26,22 @@ if(!isset($_SESSION['txt_uname']))
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
     </head>
     <body>
-    <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="nav-link" href="logout.php">Logout</a>
-       <button class="btn btn-secondary"> <a class="nav-link" href="registration.php" > Insert </a> </button> 
-    </li>
-    </ul>
+   
     <div class="container">
+    <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="home.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="registration.php">Registration</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="uploadrecord.php">All Records</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="logout.php">Logout</a>
+  </li>
+  </ul>
         <br><br><br>
    <h1 class="text-white bg-dark text-center">All Records</h1>
     <br>
@@ -56,18 +65,18 @@ if(!isset($_SESSION['txt_uname']))
             <?php
                 
                 if($con){
-                    echo "connection Successfull.";
+                    echo "";
                 }
                 else
                 {
-                    echo "error.";
+                    echo "";
                 }
                // if(isset($_POST['submit']))
 
                if(isset($_POST['submit']))
 
                 {
-                     $username = $_POST['txt_uname'];
+                    $username = $_POST['txt_uname'];
                     $lastname = $_POST['lastname'];
 
                     $optradio = $_POST['optradio'];
@@ -96,18 +105,16 @@ if(!isset($_SESSION['txt_uname']))
                         $destinationimage ='uploadimage/' .$imagename;
                         move_uploaded_file($imagetemp,$destinationimage);
 
-                    $q = "​INSERT INTO `registration_form`( `fname`, `lname`, `gender`, `pic`, `dob`, `resume`, `address`, `country`,`city` , `hobbies`)
-                         VALUES ('".$username."','".$lastname."','".$optradio."','".$imagename."','".$dob."','".$imagename."','".$addresss."','".$country."','".$city."','".$hobbies."')";
-                       
+                        $q="insert into registration_form(fname,lname,gender,pic,dob,resume,address,country,city,hobbies) values('$username','$lastname','$optradio','$imagename','$dob','$imagename','$addresss','$country','$city','$hobbies')";
+
+                       // echo $q;
+                         //  exit('est'); 
                          $query = mysqli_query($con,$q); 
-                         print_r($query);
-                         exit;
                          if($query)
-                         
                          {
-                           echo "record inserted.";
+                           echo "record inserted";
                          }else{
-                             echo "there was some error";
+                           // echo mysqli_error($con);
                          }
                         
                     } 

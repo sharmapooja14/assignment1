@@ -38,6 +38,7 @@ $q="insert into login(uname,pass) values('".$_GET["txt_uname"]."','".$_GET["txt_
 $i=mysqli_query($con,$q);
 if($i>0)
 {
+    header('location: login.php');
 	echo"Record Inserted";
 	
 }

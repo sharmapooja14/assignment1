@@ -38,6 +38,9 @@ if(isset($_SESSION['txt_uname']))
       <a class="nav-link" href="registration.php">Registration</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="Uploadrecord.php">All Records</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="logout.php">Logout</a>
     </li>
     </ul>
