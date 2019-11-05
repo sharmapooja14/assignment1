@@ -1,9 +1,8 @@
 <?php
-session_start();
 if(!isset($_SESSION['txt_uname']))
 {
     header('location: login.php');
-}
+}else{
 ?>
 <!DOCTYPE html>
 <html>
@@ -144,4 +143,5 @@ if(!isset($_SESSION['txt_uname']))
     </div>
     
 </div>
-    
+<?php
+}   
