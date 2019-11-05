@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(!isset($_SESSION['txt_uname']))
 {
     header('location: login.php');

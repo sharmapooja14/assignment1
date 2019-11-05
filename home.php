@@ -1,4 +1,5 @@
  <?php 
+ session_start();
 if(isset($_SESSION['txt_uname']))
 {
     if((time() - $_SESSION['last_time']) > 300) // Time in Seconds so 5 minutes is = 300 seconds

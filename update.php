@@ -154,7 +154,7 @@
 
         $id = $_GET['id'];
        
-                           $username = $_GET['txt_uname'];
+                           $username = $_POST['txt_uname'];
                            $lastname = $_POST['lastname'];
                            $optradio = $_POST['optradio'];
                            $image = $_FILES['image'];
